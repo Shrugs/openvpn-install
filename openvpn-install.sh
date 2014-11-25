@@ -132,7 +132,7 @@ else
 	echo "This can be useful to connect under restrictive networks"
 	read -p "Listen at port 53 [y/n]: " -e -i n ALTPORT
 	echo ""
-    read -p "Use Extra TLS Authentication [Y/n]" -e -i y SHOULDTLS
+    read -p "Use Extra TLS Authentication [y/n]: " -e -i n SHOULDTLS
     echo ""
 	echo "Do you want to enable internal networking for the VPN?"
 	echo "This can allow VPN clients to communicate between them"
