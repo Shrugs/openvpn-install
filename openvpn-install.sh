@@ -193,7 +193,7 @@ else
 	cp server.conf /etc/openvpn/
 	cd /etc/openvpn/easy-rsa/2.0/keys
 
-    if [[ "$SHOULDTLS" = 'y']]; then
+    if [[ "$SHOULDTLS" = 'y' ]]; then
         # Generate TLS Key for added security
         openvpn --genkey --secret ta.key
         cp ta.key /etc/openvpn
@@ -203,7 +203,7 @@ else
 	cd /etc/openvpn/
 	# Set the server configuration
 	sed -i 's|dh dh1024.pem|dh dh2048.pem|' server.conf
-    if [[ "$SHOULDTLS" = 'y']]; then
+    if [[ "$SHOULDTLS" = 'y' ]]; then
         sed -i 's|;tls-auth ta.key 0|tls-auth ta.key 0|' server.conf
     fi
 	sed -i 's|;push "redirect-gateway def1 bypass-dhcp"|push "redirect-gateway def1 bypass-dhcp"|' server.conf
