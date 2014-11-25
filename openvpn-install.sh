@@ -38,6 +38,14 @@ newclient () {
 	echo "<key>" >> ~/$1.ovpn
 	cat /etc/openvpn/easy-rsa/2.0/keys/$1.key >> ~/$1.ovpn
 	echo "</key>" >> ~/$1.ovpn
+
+    # Check for TLS Auth
+    if [[ -e /etc/openvpn/ta.key ]]; then
+        sed -i "/;tls-auth ta.key 1/d" ~/$1.ovpn
+        echo "<tls-auth>" >> ~/$1.ovpn
+        cat /etc/openvpn/easy-rsa/2.0/keys/ta.key >> ~/$1.ovpn
+        echo "</tls-auth>" >> ~/$1.ovpn
+    fi
 }
 
 
